@@ -1,0 +1,51 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/98811fa4-86d0-4377-9bdf-c4cd442b9bbb/ # 
+title: examq1
+
+traits:
+  -client-id-required:
+    queryParameters:
+      client_id:
+        type: string
+      client_secret:
+        type: string
+
+/employee:
+  get:
+    is: [-client-id-required]
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "id":"1",
+                "employee_name":"Tiger Nixon",
+                "employee_salary":"320800"
+              }
+
+  post:
+    responses:
+      201:
+        body:
+          application/json:
+            example:
+              {
+                "message": "data inserted"
+              }   
+/allempdatapayload:
+  post:
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "id"  : 1,
+                "employee_name" : "Tiger Nixon",
+                "employee_salary" : "320800",
+                "employee_age" : "61",
+                "profile_image" : ""
+              }
+               
+          
